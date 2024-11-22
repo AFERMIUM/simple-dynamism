@@ -1,0 +1,72 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+<head> 
+    <meta charset="UTF-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>Dynamic Web Page with JavaScript and CSS</title> 
+    <style>         body { 
+            font-family: Arial, sans-serif;             
+            background-color: #f0f4f8;             
+            display: flex;             
+            flex-direction: column;             
+            align-items: center;             
+            margin: 0; 
+        }         h1 {             
+            color: #333; 
+            margin-top: 20px; 
+        } 
+        #dynamicBox {             
+            width: 200px;             
+            height: 200px;             
+            background-color: #3498db; 
+            display: flex;             
+            align-items: center;             
+            justify-content: center;             
+            color: white;             
+            font-size: 20px;             
+            font-weight: bold;             
+            margin-top: 20px; 
+            transition: transform 0.3s, background-color 0.3s; 
+        } 
+        #changeColorButton, #toggleTextButton {             
+            padding: 10px 20px;             
+            font-size: 16px;             
+            margin: 10px;             
+            cursor: pointer;             
+            border: none;             
+            border-radius: 5px;             
+            background-color: #3498db;             
+            color: white; 
+            transition: background-color 0.3s; 
+        } 
+        #changeColorButton:hover, #toggleTextButton:hover {             
+            background-color: #2980b9; 
+        } 
+    </style> 
+</head> 
+<body> 
+    <h1>Interactive Box with JavaScript and CSS</h1> 
+    <div id="dynamicBox">Hover Me!</div> 
+    <button id="changeColorButton">Change Color</button> 
+    <button id="toggleTextButton">Toggle Text</button> 
+    <script> 
+        const dynamicBox = document.getElementById('dynamicBox');         
+        const changeColorButton = document.getElementById('changeColorButton');         
+        const toggleTextButton = document.getElementById('toggleTextButton'); 
+        dynamicBox.addEventListener('mouseover', function() {             
+            dynamicBox.style.transform = 'scale(1.1)'; 
+        }); 
+        dynamicBox.addEventListener('mouseout', function() {             
+            dynamicBox.style.transform = 'scale(1)'; 
+        }); 
+        changeColorButton.addEventListener('click', function() {             
+            const colors = ['#e74c3c', '#9b59b6', '#f1c40f', '#1abc9c']; 
+            const randomColor = colors[Math.floor(Math.random() * colors.length)];             
+            dynamicBox.style.backgroundColor = randomColor; 
+        }); 
+        toggleTextButton.addEventListener('click', function() { 
+            dynamicBox.textContent = dynamicBox.textContent === 'Hover Me!' ? 'Hello World!' : 'Hover Me!'; 
+        }); 
+    </script> 
+</body> 
+</html> 
